@@ -7,7 +7,7 @@ with open(file="README.md", mode="r") as fh:
 
 setup(
 
-    name='',
+    name='sigma-azure-management',
 
     # Define Author Info.
     author='Alex Reed',
@@ -17,15 +17,17 @@ setup(
     version='0.1.0',
 
     # Define descriptions.
-    description='',
+    description='A Python project that demonstrates managing different Azure Services.',
     long_description=long_description,
     long_description_content_type="text/markdown",
 
     # Define repo location.
-    url='',
+    url='https://github.com/areed1192/sigma-azure-management',
 
     # Define dependencies.
-    install_requires=[],
+    install_requires=[
+        'azure.mgmt.compute',
+    ],
 
     # Specify folder content.
     packages=find_namespace_packages(

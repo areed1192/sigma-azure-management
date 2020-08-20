@@ -1,4 +1,4 @@
-# Template Repo
+# Using Azure in Python
 
 ## Table of Contents
 
