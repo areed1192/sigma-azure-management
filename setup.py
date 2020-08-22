@@ -31,7 +31,9 @@ setup(
 
     # Specify folder content.
     packages=find_namespace_packages(
-        include=[]
+        include=[
+            'msrestazure==0.6.4'
+        ]
     ),
 
     # Define the python version.

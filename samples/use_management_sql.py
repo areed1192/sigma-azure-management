@@ -2,8 +2,11 @@ from pprint import pprint
 from configparser import ConfigParser
 
 from azure.mgmt.sql import SqlManagementClient
-from azure.mgmt.resource import SubscriptionClient
 from azure.common.credentials import ServicePrincipalCredentials
+
+# These are only imported for Type Hinting and Intellisense.
+from azure.mgmt.sql.models import Server
+from azure.mgmt.sql.models import Database
 
 # Initialize the Parser.
 config = ConfigParser()
@@ -31,19 +34,19 @@ sql_management_client = SqlManagementClient(
 )
 
 # Grab a server using the Resource Group Name.
-server = sql_management_client.servers.get(
+server: Server = sql_management_client.servers.get(
     resource_group_name='resource_group_test',
     server_name='trading-robot'
 )
-print(server)
+print(server.as_dict())
 
 # Grab the master database from the `trading-robot` server.
-database = sql_management_client.databases.get(
+database: Database = sql_management_client.databases.get(
     resource_group_name='resource_group_test',
     server_name='trading-robot',
     database_name='master'
 )
-print(database)
+print(database.as_dict())
 print(database.name)
 print(database.id)
 print(database.status)

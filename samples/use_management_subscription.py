@@ -2,8 +2,21 @@ from pprint import pprint
 from configparser import ConfigParser
 
 from azure.mgmt.resource import SubscriptionClient
+
+# Just as a note, this is really importing this...
 from azure.common.credentials import ServicePrincipalCredentials
-from azure.mgmt.resource.subscriptions import models as sub_models
+
+# From this...
+# from msrestazure.azure_active_directory import ServicePrincipalCredentials
+
+# These are only imported for Type Hinting and Intellisense.
+from azure.mgmt.resource.subscriptions.models import TenantCategory
+from azure.mgmt.resource.subscriptions.models import TenantIdDescription
+
+# These are only imported for Type Hinting and Intellisense.
+from azure.mgmt.resource.subscriptions.models import Subscription
+from azure.mgmt.resource.subscriptions.models import SubscriptionPolicies
+
 
 # Initialize the Parser.
 config = ConfigParser()
@@ -30,7 +43,7 @@ subscription_client = SubscriptionClient(credential)
 for tenant_page in subscription_client.tenants.list():
 
     # Redfine this for Type Hinting.
-    tenant: sub_models.TenantIdDescription = tenant_page
+    tenant: TenantIdDescription = tenant_page
 
     print(tenant.id)
     print(tenant.tenant_id)
@@ -41,13 +54,13 @@ for tenant_page in subscription_client.tenants.list():
     pprint(tenant.as_dict())
 
     # some objects will return other "objects".
-    tenant_category: sub_models.TenantCategory = tenant.tenant_category
+    tenant_category: TenantCategory = tenant.tenant_category
 
 # Grab the Subscriptions.
 for sub_page in subscription_client.subscriptions.list():
 
     # Redefine this for Type Hinting.
-    subscription: sub_models.Subscription = sub_page
+    subscription: Subscription = sub_page
 
     print(subscription.id)
     print(subscription.subscription_id)
@@ -55,7 +68,7 @@ for sub_page in subscription_client.subscriptions.list():
     print(subscription.tenant_id)
 
     # Grab the Subscription Policies.
-    subscription_policies: sub_models.SubscriptionPolicies = subscription.subscription_policies
+    subscription_policies: SubscriptionPolicies = subscription.subscription_policies
 
     print(subscription_policies.quota_id)
     print(subscription_policies.location_placement_id)

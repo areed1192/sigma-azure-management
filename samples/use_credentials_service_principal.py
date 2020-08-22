@@ -2,7 +2,6 @@ from pprint import pprint
 from configparser import ConfigParser
 
 from azure.common.credentials import ServicePrincipalCredentials
-from azure.mgmt.resource.subscriptions import models as sub_models
 
 # Initialize the Parser.
 config = ConfigParser()
