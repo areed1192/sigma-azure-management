@@ -7,7 +7,10 @@ from azure.common.credentials import ServicePrincipalCredentials
 config = ConfigParser()
 
 # Read the file.
-config.read('config/config.ini')
+try:
+    config.read('config/config.ini')
+except:
+    config.read('configs/config.ini')
 
 # Grab the Azure Credentials needed.
 tenant_id = config.get('azure_credentials', 'azure_tenant_id')

@@ -12,7 +12,10 @@ from azure.mgmt.sql.models import Database
 config = ConfigParser()
 
 # Read the file.
-config.read('config/config.ini')
+try:
+    config.read('config/config.ini')
+except:
+    config.read('configs/config.ini')
 
 # Grab the Azure Credentials needed.
 subscription_id = config.get('azure_credentials', 'azure_subscription_id')
@@ -35,14 +38,14 @@ sql_management_client = SqlManagementClient(
 
 # Grab a server using the Resource Group Name.
 server: Server = sql_management_client.servers.get(
-    resource_group_name='resource_group_test',
+    resource_group_name='sigma-coding-tutorials',
     server_name='trading-robot'
 )
 print(server.as_dict())
 
 # Grab the master database from the `trading-robot` server.
 database: Database = sql_management_client.databases.get(
-    resource_group_name='resource_group_test',
+    resource_group_name='sigma-coding-tutorials',
     server_name='trading-robot',
     database_name='master'
 )

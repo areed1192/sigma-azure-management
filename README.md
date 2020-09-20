@@ -36,22 +36,6 @@ pip install .
 This will install all the dependencies listed in the `setup.py` file. Once done
 you can use the library wherever you want.
 
-**Setup - PyPi Install:**
-
-To **install** the library, run the following command from the terminal.
-
-```console
-pip install federal-register
-```
-
-**Setup - PyPi Upgrade:**
-
-To **upgrade** the library, run the following command from the terminal.
-
-```console
-pip install --upgrade federal-register
-```
-
 ## Usage
 
 Here is a simple example of using the `place_holder` library.
@@ -67,6 +51,3 @@ Help support this project and future projects by donating to my [Patreon Page](h
 
 **YouTube:**
 If you'd like to watch more of my content, feel free to visit my YouTube channel [Sigma Coding](https://www.youtube.com/c/SigmaCoding).
-
-<!-- **Hire Me:**
-If you have a project, you think I can help you with feel free to reach out at [coding.sigma@gmail.com](mailto:coding.sigma@gmail.com?subject=[GitHub]%20Project%20Proposal) or fill out the [contract request form](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAa__aAmF1hURFg5ODdaVTg1TldFVUhDVjJHWlRWRzhZRy4u) -->
